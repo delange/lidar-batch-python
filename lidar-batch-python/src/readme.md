@@ -10,7 +10,9 @@ This repository is the technical back-bone from a [blog post](link) where the co
 
 As input data for this example we make use of a sample the third edition of the Dutch nationwide LiDAR open dataset [AHN3](https://www.ahn.nl/). The dataset has been acquired with airborne laser scanning.
 
-The pipeline on Azure is applied on the provided sample dataset, a laz file containing AHN3 data from an area of 150m x 150m, see below an impression of the input data, and the resulting applied pipeline and filter, showing only the ground pulses. Visualization is made with the use of [plas.io](https://plas.io) 
+As an example, the provided PDAL pipeline is applied on Azure Batch with the provided sample dataset, a laz file containing AHN3 data from an area of 150m x 150m. See below an impression of the input data, and the resulting applied pipeline and filter, showing only the ground pulses. 
+
+Visualization is made with the use of [plas.io](https://plas.io) 
 ![Sample](./img/AHN3_sample_github_composite.jpg)
 
 
@@ -25,7 +27,7 @@ There are three steps to follow when the Azure Batch Python SDK is used to manag
 
 #### Pre-requisites:
 
-You should have access to a resource group, with contributor roles for the following two resources in the group:
+You should have access to a resource group, with contributor permission for the following two resources in the group:
 -   an Azure Storage account
 -   an Azure Batch account
 
