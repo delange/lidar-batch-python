@@ -8,9 +8,9 @@ ap = argparse.ArgumentParser()
 
 # Add the arguments to the parser
 ap.add_argument("-a", "--inputfile", required=True,
-   help="first operand")
+   help="input file, string")
 ap.add_argument("-b", "--outputfile", required=False,
-   help="second operand")
+   help="output file, string")
 args = vars(ap.parse_args())
 input_file = args['inputfile']
 output_file = args['outputfile']
@@ -28,7 +28,7 @@ pipeline = [
         {
             "type":"filters.csf"
         },
-        {
+       {
             "type":"filters.range",
             "limits":"Classification[2:2]"
         },
@@ -36,18 +36,13 @@ pipeline = [
             "type":"writers.las",
             "filename":output_file
         }
-        ]
-#        {
-#            "type":"writers.gdal",
-#            "resolution": 15,
-#            "output_type":"mean",
-#            "dimension":"Z",
-#            "data_type":"float",
-#            "filename":output_file
-#    }
-#    ]
+    ]     
+   
+pipeline = pdal.Pipeline(json.dumps(pipeline))
+pipeline.execute()    
 
 
+## Pipeline to create small sample dataset for GitHub example - to be used as input data
 #pipeline = [
 #        {
 #            "type": "readers.las",
@@ -56,7 +51,8 @@ pipeline = [
 #        },
 #        {
 #            "type":"filters.crop",
-#            "bounds":"([196000,197000],[316755,317755])"
+##            "bounds":"([196000,197000],[317755,318755])" # snippet for 1km x 1km -> used for blog post example
+#            "bounds":"([195150,195300],[317775,317925])" # sippet for 150m x 150m -> used for GitHub example
 #        },
 #        {
 #            "type":"writers.las",
@@ -64,9 +60,14 @@ pipeline = [
 #        }
 #    ]
 
-
-pipeline = pdal.Pipeline(json.dumps(pipeline))
-pipeline.execute()
-# read & print the data schema from the pipeline object
-schema = pipeline.schema
-print("Schema is {}".format(schema))
+## Pipeline snippet to write data as geotif
+#
+#        {
+#            "type":"writers.gdal",
+#            "resolution": 0.5,
+#            "output_type":"idw",
+#            "dimension":"Z",
+#            "data_type":"float",
+#            "filename":output_file
+#        }
+#    ]

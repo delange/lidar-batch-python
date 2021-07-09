@@ -15,8 +15,6 @@ import azure.batch.models as batchmodels
 sys.path.append('.')
 sys.path.append('..')
 
-### RDL: download en installeer python voorbeeld, zie: https://github.com/Azure-Samples/azure-batch-samples/blob/master/Python/Batch/sample4_job_scheduler.py
-
 # Update the Batch and Storage account credential strings in config.py with values
 # unique to your accounts. These are used when constructing connection strings
 # for the Batch and Storage client objects.
@@ -410,25 +408,23 @@ if __name__ == '__main__':
         raise
 
 
+    # Delete input container in storage
+    print('Deleting container [{}]...'.format(input_container_name))
+    blob_service_client.delete_container(input_container_name)
 
+    # Print out some timing info
+    end_time = datetime.datetime.now().replace(microsecond=0)
+    print()
+    print('Sample end: {}'.format(end_time))
+    print('Elapsed time: {}'.format(end_time - start_time))
+    print()
 
-#    # Delete input container in storage
-#    print('Deleting container [{}]...'.format(input_container_name))
-#    blob_service_client.delete_container(input_container_name)
-#
-#    # Print out some timing info
-#    end_time = datetime.datetime.now().replace(microsecond=0)
-#    print()
-#    print('Sample end: {}'.format(end_time))
-#    print('Elapsed time: {}'.format(end_time - start_time))
-#    print()
-#
-#    # Clean up Batch resources (if the user so chooses).
-#    if query_yes_no('Delete job?') == 'yes':
-#        batch_client.job.delete(config._JOB_ID)
-#
-#    if query_yes_no('Delete pool?') == 'yes':
-#        batch_client.pool.delete(config._POOL_ID)
-#
-#    print()
-#    input('Press ENTER to exit...')
+    # Clean up Batch resources (if the user so chooses).
+    if query_yes_no('Delete job?') == 'yes':
+        batch_client.job.delete(config._JOB_ID)
+
+    if query_yes_no('Delete pool?') == 'yes':
+        batch_client.pool.delete(config._POOL_ID)
+
+    print()
+    input('Press ENTER to exit...')

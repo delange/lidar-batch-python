@@ -1,3 +1,6 @@
+## Note: LiDAR example:
+For the LiDAR example, hop two levels deeper into this repo ([link](https://github.com/delange/lidar-batch-python/tree/master/lidar-batch-python/src)), which has its fundaments based on the Azure Batch samples that accompanied with these Azure Batch overview. 
+
 # The Azure Batch client template
 
 ### When to use Azure Batch for your compute job
