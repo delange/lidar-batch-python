@@ -4,7 +4,7 @@ For general Azure Batch description, hop two levels up this repo ([link](https:/
 
 # Processing LiDAR data at scale with Azure Batch and PDAL
 
-In this repository you will find the code to process LiDAR data with [PDAL](https://pdal.io/) pipelines at scale with [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview)  an Azure Cosmos DB instance. While focussing here on the data ingestion and queries, we also made the connection to Azure Synapse Analytics, in order to perform large scale, big data processing on a Spark cluster with the data stored in Cosmos DB.
+In this repository you will find the code to process LiDAR data with [PDAL](https://pdal.io/) pipelines at scale with [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview).
 
 This repository is the technical back-bone from a [blog post](link) where the concept of the PDAL pipeline and processing with Azure Batch are explained.
 
@@ -21,8 +21,7 @@ There are three steps to follow when the Azure Batch Python SDK is used to manag
 2) with the Python SDK of Azure Batch, the local client starts the creation of an Azure Batch Pool, and then can add Azure batch jobs to run on the LiDAR files, 
 3) Azure Batch automatically schedules the job and tasks, execute the processing and upload output files to Azure Blob Storage.  
 
-![Overview three pipelines](./img/architecture.jpg)
-
+<img src="./img/architecture.jpg" width="200"/>
 
 #### Pre-requisites:
 
