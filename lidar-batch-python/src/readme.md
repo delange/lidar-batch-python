@@ -21,7 +21,7 @@ There are three steps to follow when the Azure Batch Python SDK is used to manag
 2) with the Python SDK of Azure Batch, the local client starts the creation of an Azure Batch Pool, and then can add Azure batch jobs to run on the LiDAR files, 
 3) Azure Batch automatically schedules the job and tasks, execute the processing and upload output files to Azure Blob Storage.  
 
-<img src="./img/architecture.jpg" width="200"/>
+<img src="./img/architecture.jpg" width="600"/>
 
 #### Pre-requisites:
 
@@ -62,5 +62,6 @@ As with the submission of Azure Batch jobs, for each input file an Azure Batch t
 
 #### Supporting tools
 [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/): to interact with Azure storage
+
 [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): to interact with Azure Batch accounts/pools/nodes, reducing the need to ssh into the VMs.
 
