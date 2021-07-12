@@ -6,7 +6,7 @@ For general Azure Batch description, hop two levels up this repo ([link](https:/
 
 In this repository you will find the code to process LiDAR data with [PDAL](https://pdal.io/) pipelines at scale with [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview).
 
-This repository is the technical back-bone from a [blog post](link) where the concept of the PDAL pipeline and processing with Azure Batch are explained.
+This repository is the technical back-bone from a [blog post](https://towardsdatascience.com/point-clouds-in-the-cloud-b7266da4ff25) where the concept of the PDAL pipeline and processing with Azure Batch are explained.
 
 As input data for this example we make use of a sample the third edition of the Dutch nationwide LiDAR open dataset [AHN3](https://www.ahn.nl/). The dataset has been acquired with airborne laser scanning.
 
